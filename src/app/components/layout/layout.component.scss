@@ -1,34 +1,40 @@
 @import "src/sizes";
 $header-height: 64px;
 $small-header-height: 57px;
-:host{
+:host {
   display: block;
   box-sizing: border-box;
   height: 100%;
 
-  .main-container{
+  .main-container {
     transition: ease-in-out 250ms;
     height: 100%;
   }
-  mat-sidenav-content{
+
+  mat-drawer-content {
     display: flex;
     flex-direction: column;
     height: 100%;
     position: relative;
-    .innerTheme{
+
+
+    .innerTheme {
       padding: 1rem;
     }
-    mat-toolbar{
+
+    mat-toolbar {
       min-height: 64px;
       position: sticky;
       top: 0;
       z-index: 1;
     }
-    footer{
+
+    footer {
       margin: 0;
       padding: 1rem;
       flex: 1 1 auto;
-      min-height: 38px;
+      min-height: 32px;
+      line-height: 32px;
     }
   }
 }

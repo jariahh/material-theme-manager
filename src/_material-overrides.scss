@@ -1,0 +1,23 @@
+@mixin theme() {
+  $menu-left-min: 100px;
+  .mat-drawer-container {
+    .mat-drawer-side {
+      transform: translate(0, 0);
+      min-width: 300px;
+    }
+
+    &.mat-drawer-closed {
+      .mat-drawer-side {
+        transform: translate(calc(-100% + #{$menu-left-min}), 0);
+        width: $menu-left-min;
+        min-width: unset;
+        visibility: visible !important; // always visible
+      }
+
+      .mat-drawer-content {
+        margin-left: $menu-left-min;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,7 @@
+@use "sass:map";
+@use '~@angular/material' as mat;
+@function getColor($theme, $palette, $hue){
+  $config: mat.get-color-config($theme);
+  $primary: map.get($config, $palette);
+  @return mat.get-color-from-palette($primary, $hue);
+}

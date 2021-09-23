@@ -1,5 +1,7 @@
-<mat-sidenav-container class="main-container" autosize>
-  <mat-sidenav #sidenavContainer mode="side" opened="opened" style="min-width: 300px">
+<mat-drawer-container class="main-container" autosize
+                       [class.mat-drawer-closed]="!sidenavContainer.opened"
+                       [class.mat-drawer-open]="sidenavContainer.opened">
+  <mat-drawer #sidenavContainer mode="side" opened="opened">
     <mat-toolbar color="primary">
       <button mat-button (click)="sidenavContainer.toggle()">
         <mat-icon>menu</mat-icon>
@@ -11,15 +13,9 @@
       </mat-nav-list>
       <mat-divider></mat-divider>
     </mat-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
+  </mat-drawer>
+  <mat-drawer-content class="ps">
     <mat-toolbar color="primary">
-      <button *ngIf="!sidenavContainer.opened" mat-button (click)="sidenavContainer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <a mat-button [routerLink]="['/home']">
-        <mat-icon>home</mat-icon>
-      </a>
       <ng-content select="[leftHeader]"></ng-content>
       <div class="spacer"></div>
       <ng-content select="[rightHeader]"></ng-content>
@@ -43,5 +39,5 @@
     <footer class="mat-accent">
       <ng-content select="[footer]"></ng-content>
     </footer>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer-content>
+</mat-drawer-container>

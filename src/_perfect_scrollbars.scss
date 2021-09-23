@@ -1,0 +1,37 @@
+@use "sass:map";
+@use "material-helper" as materialHelper;
+@mixin getScrollbar($color){
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: lighten($color, 20%);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 5px;
+    border: 1px solid darken($color, 10%);
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: lighten($color, 10%);
+  }
+}
+@mixin theme($theme) {
+  @debug $theme;
+  $isDarkMode: map.get($theme, is-dark);
+  $color: #a0a0a0;
+  @if($isDarkMode) {
+    $color: #323232;
+  }
+  @include getScrollbar($color);
+  body.scroll-primary{
+    @include getScrollbar(materialHelper.getColor($theme, primary, default));
+  }
+  body.scroll-accent{
+    @include getScrollbar(materialHelper.getColor($theme, accent, default));
+  }
+  body.scroll-warn{
+    @include getScrollbar(materialHelper.getColor($theme, warn, default));
+  }
+}
