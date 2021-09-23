@@ -1,5 +1,10 @@
 <mat-sidenav-container class="main-container" autosize>
   <mat-sidenav #sidenavContainer mode="side" opened="opened" style="min-width: 300px">
+    <mat-toolbar color="primary">
+      <button mat-button (click)="sidenavContainer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
     <mat-list>
       <mat-nav-list>
         <ng-content select="[menu]"></ng-content>
@@ -9,7 +14,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button mat-button (click)="sidenavContainer.toggle()">
+      <button *ngIf="!sidenavContainer.opened" mat-button (click)="sidenavContainer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <a mat-button [routerLink]="['/home']">

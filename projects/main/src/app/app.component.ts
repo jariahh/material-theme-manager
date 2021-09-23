@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'main';
-  color: 'primary' | 'accent' | 'warn' | null = null;
+  color: 'primary' | 'accent' | 'warn' | null = 'primary';
 }

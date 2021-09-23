@@ -1,6 +1,6 @@
 @use "sass:map";
 @use '~@angular/material' as mat;
-@mixin getStyle($color){
+@mixin getStyle($color, $secondColor){
   header {
     @if ($color != null) {
       background: $color;
@@ -11,8 +11,8 @@
     padding: 1rem;
   }
   footer{
-    @if ($color != null) {
-      background: lighten($color, 15%);
+    @if ($secondColor != null) {
+      background: $secondColor;
     }
     padding: 1rem;
   }
@@ -29,19 +29,18 @@
   $bgColorWarn: mat.get-color-from-palette($warn, default);
   $fgColorWarn: mat.get-color-from-palette($warn, main-contrast);
   app-widget{
-    display: block;
     &>div {
-      @include getStyle(null);
+      @include getStyle(null, null);
       &.mat-primary {
-        @include getStyle($bgColorPrimary);
+        @include getStyle($bgColorPrimary, $bgColorAccent);
       }
 
       &.mat-accent {
-        @include getStyle($bgColorAccent);
+        @include getStyle($bgColorAccent, lighten($bgColorAccent, 5%));
       }
 
       &.mat-warn {
-        @include getStyle($bgColorWarn);
+        @include getStyle($bgColorWarn, lighten($bgColorPrimary, 25%));
       }
     }
   }
