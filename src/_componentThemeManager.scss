@@ -1,0 +1,7 @@
+//@use "app/Components/playlist-list/playlist-list-component-theme";
+@use "projects/main/src/themeManager";
+@use "app/components/layout/layout-component-theme";
+@mixin theme($theme){
+  @include layout-component-theme.theme($theme);
+  @include themeManager.theme($theme)
+}

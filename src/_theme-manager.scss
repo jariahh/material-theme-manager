@@ -1,0 +1,14 @@
+@use "defaultTheme";
+@use 'secondaryTheme';
+@use "purple";
+@mixin theme(){
+  body.default-theme {
+    @include defaultTheme.theme();
+  }
+  body.secondary-theme{
+    @include secondaryTheme.theme();
+  }
+  body.purple{
+    @include purple.theme();
+  }
+}

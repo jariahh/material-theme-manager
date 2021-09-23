@@ -1,0 +1,6 @@
+@use "app/app-component-theme";
+@use "app/widget/widget-component-theme";
+@mixin theme($theme){
+  @include app-component-theme.theme($theme);
+  @include widget-component-theme.theme($theme);
+}

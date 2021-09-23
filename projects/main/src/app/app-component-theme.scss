@@ -1,0 +1,15 @@
+@use "sass:map";
+@use '~@angular/material' as mat;
+@mixin theme($theme){
+  $config: mat.get-color-config($theme);
+  $primary: map.get($config, primary);
+  $accent: map.get($config, accent);
+  $warn: map.get($config, warn);
+
+  $bgColorPrimary: mat.get-color-from-palette($primary, default);
+  $fgColorPrimary: mat.get-color-from-palette($primary, main-contrast);
+  $bgColorAccent: mat.get-color-from-palette($accent, default);
+  $fgColorAccent: mat.get-color-from-palette($accent, main-contrast);
+  $bgColorWarn: mat.get-color-from-palette($warn, default);
+  $fgColorWarn: mat.get-color-from-palette($warn, main-contrast);
+}

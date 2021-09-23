@@ -1,0 +1,42 @@
+<mat-sidenav-container class="main-container" autosize>
+  <mat-sidenav #sidenavContainer mode="side" opened="opened" style="min-width: 300px">
+    <mat-list>
+      <mat-nav-list>
+        <ng-content select="[menu]"></ng-content>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-button (click)="sidenavContainer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a mat-button [routerLink]="['/home']">
+        <mat-icon>home</mat-icon>
+      </a>
+      <ng-content select="[leftHeader]"></ng-content>
+      <div class="spacer"></div>
+      <ng-content select="[rightHeader]"></ng-content>
+      <button mat-button [mat-menu-trigger-for]="userMenu">
+        <mat-icon>person</mat-icon>
+      </button>
+      <mat-menu #userMenu>
+        <button mat-menu-item *ngFor="let theme of themes" [class.active]="theme == (selectedTheme$ | async)" (click)="setTheme(theme)" style="text-transform: capitalize">
+          <app-theme-thumbnail [theme]="theme"></app-theme-thumbnail>
+        </button>
+        <div mat-menu-item>
+          <mat-slide-toggle [(ngModel)]="darkMode">Dark Mode</mat-slide-toggle>
+        </div>
+        <mat-divider></mat-divider>
+        <ng-content select="[profileMenu]"></ng-content>
+      </mat-menu>
+    </mat-toolbar>
+    <div #innerTheme class="innerTheme">
+      <ng-content></ng-content>
+    </div>
+    <footer class="mat-accent">
+      <ng-content select="[footer]"></ng-content>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

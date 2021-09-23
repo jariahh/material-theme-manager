@@ -1,0 +1,26 @@
+$thumb-size: 24px;
+.theme-containers {
+  display: inline-block;
+  height: $thumb-size;
+  width: $thumb-size;
+  border: 1px solid #cccc;
+  box-sizing: border-box;
+  vertical-align: middle;
+  .theme-primary {
+    height: 6px;
+  }
+  .sub-theme-primary {
+    height: 4px;
+  }
+  .sub-theme-accent {
+    height: 4px;
+  }
+  .theme-accent {
+    height: 3px;
+  }
+
+  .theme-background {
+    height: $thumb-size - 17px;
+  }
+
+}
