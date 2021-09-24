@@ -9,3 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 @include theme-manager.theme();
 @include material-overrides.theme();
+
+.offsetMenu{
+  margin-left: 100px;
+}

@@ -11,6 +11,7 @@ import { MainComponent } from './components/main/main.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import {FormsModule} from "@angular/forms";
 import { MenuComponent } from './components/menu/menu.component';
+import { SubMenuComponent } from './components/menu/sub-menu/sub-menu.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MenuComponent } from './components/menu/menu.component';
     MainComponent,
     LayoutComponent,
     LayoutComponent,
-    MenuComponent
+    MenuComponent,
+    SubMenuComponent
   ],
     imports: [
         AngularMaterialModule,

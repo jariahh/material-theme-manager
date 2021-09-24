@@ -1,0 +1,17 @@
+<ng-container *ngFor="let menuItem of menu">
+  <ng-container *ngIf="!menuItem.children?.length">
+    <a [routerLink]="[basePath, menuItem.path]" mat-menu-item>
+      {{menuItem.title}}
+    </a>
+  </ng-container>
+  <ng-container *ngIf="menuItem.children?.length">
+    <a [routerLink]="[basePath, menuItem.path]"
+       mat-menu-item
+       [matMenuTriggerFor]="subMenu">
+        {{menuItem.title}}
+    </a>
+    <mat-menu #subMenu>
+      <app-sub-menu [menu]="menuItem.children"></app-sub-menu>
+    </mat-menu>
+  </ng-container>
+</ng-container>

@@ -1,4 +1,4 @@
-<div [style.padding-left.rem]="level == 1? (level * .5) + 2: level * .5">
+<div *ngIf="isOpen" [style.padding-left.rem]="level == 1? (level * .5) + 2: level * .5">
   <mat-accordion>
     <ng-container *ngFor="let menuItem of menu">
       <a [routerLink]="[basePath, menuItem.path]" mat-menu-item *ngIf="!menuItem.children?.length">
@@ -20,4 +20,25 @@
       </mat-expansion-panel>
     </ng-container>
   </mat-accordion>
+</div>
+<div *ngIf="!isOpen">
+  <ng-container *ngFor="let menuItem of menu">
+    <a [routerLink]="[basePath, menuItem.path]" mat-menu-item *ngIf="!menuItem.children?.length">
+      <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
+    </a>
+    <ng-container *ngIf="menuItem.children?.length">
+      <a [routerLink]="[basePath, menuItem.path]"
+         mat-menu-item
+         [matMenuTriggerFor]="subMenu">
+        <div style="display: flex; padding: .75rem 0">
+          <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
+          <div class="spacer"></div>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </div>
+      </a>
+      <mat-menu #subMenu xPosition="after" yPosition="below" [overlapTrigger]="true" class="offsetMenu">
+        <app-sub-menu [menu]="menuItem.children"></app-sub-menu>
+      </mat-menu>
+    </ng-container>
+  </ng-container>
 </div>
