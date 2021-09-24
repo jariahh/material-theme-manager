@@ -1,19 +1,20 @@
-<div *ngIf="isOpen" [style.padding-left.rem]="level == 1? (level * .5) + 2: level * .5">
-  <mat-accordion>
+<div *ngIf="isOpen || !isIconMenu" [style.padding-left.rem]="level == 1? (level * .5) + 2: level * .5">
+  <mat-accordion class="mat-secondary">
     <ng-container *ngFor="let menuItem of menu">
       <a [routerLink]="[basePath, menuItem.path]" mat-menu-item *ngIf="!menuItem.children?.length">
         <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
-        <span *ngIf="isOpen">{{menuItem.title}}</span>
+        <span>{{menuItem.title}}</span>
       </a>
       <mat-expansion-panel *ngIf="menuItem.children?.length">
         <mat-expansion-panel-header>
           <a [routerLink]="[basePath, menuItem.path]" mat-menu-item>
             <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
-            <span *ngIf="isOpen">{{menuItem.title}}</span>
+            <span>{{menuItem.title}}</span>
           </a>
         </mat-expansion-panel-header>
         <app-menu *ngIf="menuItem.children?.length"
                   [isOpen]="isOpen"
+                  [isIconMenu]="isIconMenu"
                   [menu]="menuItem.children"
                   [basePath]="basePath + menuItem.path + '/'"
                   [level]="level + 1"></app-menu>
@@ -21,7 +22,7 @@
     </ng-container>
   </mat-accordion>
 </div>
-<div *ngIf="!isOpen">
+<div *ngIf="!isOpen && isIconMenu">
   <ng-container *ngFor="let menuItem of menu">
     <a [routerLink]="[basePath, menuItem.path]" mat-menu-item *ngIf="!menuItem.children?.length">
       <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>

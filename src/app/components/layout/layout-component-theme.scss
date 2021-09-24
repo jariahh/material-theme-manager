@@ -1,16 +1,32 @@
 @import "../../../material-helper";
 @import "../../../sizes";
 @mixin theme($theme){
-  footer{
-    &.mat-primary{
+  footer, mat-drawer, mat-accordion {
+    &.mat-primary {
       background: getColor($theme, primary, default);
       color: getColor($theme, primary, main-contrast);
     }
-    &.mat-accent{
+
+    &.mat-secondary {
+      background: getColor($theme, secondary, default);
+      color: getColor($theme, secondary, main-contrast);
+      mat-expansion-panel {
+        background: getColor($theme, secondary, default);
+        &, .mat-expansion-panel-header, a, a mat-icon {
+          color: getColor($theme, secondary, main-contrast) !important;
+          & span::after {
+            color: getColor($theme, secondary, main-contrast) !important;
+          }
+        }
+      }
+    }
+
+    &.mat-accent {
       background: getColor($theme, accent, default);
       color: getColor($theme, accent, main-contrast);
     }
-    &.mat-warn{
+
+    &.mat-warn {
       background: getColor($theme, warn, default);
       color: getColor($theme, warn, main-contrast);
     }

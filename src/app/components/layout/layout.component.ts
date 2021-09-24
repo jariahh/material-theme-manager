@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter,
+  EventEmitter, Input,
   OnDestroy,
   OnInit,
   Output,
@@ -19,6 +19,7 @@ import {Theme} from "./theme-thumbnail/theme";
 })
 export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit{
   @Output() menuToggle = new EventEmitter<boolean>();
+  @Input() isIconMenu = false;
   // @ts-ignore
   @ViewChild('innerTheme') innerTheme: ElementRef<HTMLDivElement>;
   themes = [

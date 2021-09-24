@@ -1,7 +1,10 @@
 ::ng-deep {
   .mat-expansion-panel {
     box-shadow: none !important;
-
+    border-radius: 0!important;
+    &.mat-expansion-panel-spacing{
+      margin: 0;
+    }
     .mat-expansion-panel-header {
       padding: 0 24px 0 0 !important;
     }
@@ -10,4 +13,5 @@
       padding: 0 !important;
     }
   }
+
 }

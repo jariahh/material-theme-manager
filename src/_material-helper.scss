@@ -3,5 +3,8 @@
 @function getColor($theme, $palette, $hue){
   $config: mat.get-color-config($theme);
   $primary: map.get($config, $palette);
+  @if($primary == null){
+    @return '';
+  }
   @return mat.get-color-from-palette($primary, $hue);
 }

@@ -8,6 +8,7 @@ import {IMenuItem} from "./components/menu/IMenuItem";
 })
 export class AppComponent implements OnInit, OnDestroy {
   menuIsOpen: boolean = false;
+  isIconMenu = false;
   menu = [
     {
       icon: 'account_box',

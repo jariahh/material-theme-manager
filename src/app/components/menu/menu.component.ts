@@ -11,6 +11,7 @@ export class MenuComponent implements OnInit {
   @Input() menu: IMenuItem[]= [];
   @Input() level = 0;
   @Input() basePath = '';
+  @Input() isIconMenu = false;
   constructor() { }
 
   ngOnInit(): void {
