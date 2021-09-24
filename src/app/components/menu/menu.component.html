@@ -1,0 +1,23 @@
+<div [style.padding-left.rem]="level * .5">
+  <mat-accordion>
+    <ng-container *ngFor="let menuItem of menu">
+      <a [routerLink]="[basePath, menuItem.path]" mat-menu-item *ngIf="!menuItem.children?.length">
+        <mat-icon>{{menuItem.icon}}</mat-icon>
+        <span *ngIf="isOpen">{{menuItem.title}}</span>
+      </a>
+      <mat-expansion-panel *ngIf="menuItem.children?.length">
+        <mat-expansion-panel-header>
+          <a [routerLink]="[basePath, menuItem.path]" mat-menu-item>
+            <mat-icon>{{menuItem.icon}}</mat-icon>
+            <span *ngIf="isOpen">{{menuItem.title}}</span>
+          </a>
+        </mat-expansion-panel-header>
+        <app-menu *ngIf="menuItem.children?.length"
+                  [isOpen]="isOpen"
+                  [menu]="menuItem.children"
+                  [basePath]="basePath + menuItem.path + '/'"
+                  [level]="level + 1"></app-menu>
+      </mat-expansion-panel>
+    </ng-container>
+  </mat-accordion>
+</div>

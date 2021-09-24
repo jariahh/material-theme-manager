@@ -1,4 +1,14 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+  Renderer2,
+  ViewChild
+} from '@angular/core';
 import {BehaviorSubject, Subscription} from "rxjs";
 import {Theme} from "./theme-thumbnail/theme";
 
@@ -8,6 +18,7 @@ import {Theme} from "./theme-thumbnail/theme";
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit{
+  @Output() menuToggle = new EventEmitter<boolean>();
   // @ts-ignore
   @ViewChild('innerTheme') innerTheme: ElementRef<HTMLDivElement>;
   themes = [
@@ -87,6 +98,10 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit{
     this.darkMode$.next(!isDarkMode);
   }
 
+  menuToggleOpen($event: boolean) {
+    this.menuToggle.next($event);
+  }
+
   private getThemeOrFirst(): Theme {
     let themeName = sessionStorage.getItem('themeName');
     if (!themeName) {
@@ -97,7 +112,5 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit{
   private getDarkOrDefault(): boolean {
     return sessionStorage.getItem('isDarkMode') === 'true';
   }
-
-
 }
 

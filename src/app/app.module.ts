@@ -10,6 +10,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { MainComponent } from './components/main/main.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import {FormsModule} from "@angular/forms";
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule} from "@angular/forms";
     ThemeThumbnailComponent,
     MainComponent,
     LayoutComponent,
-    LayoutComponent
+    LayoutComponent,
+    MenuComponent
   ],
     imports: [
         AngularMaterialModule,

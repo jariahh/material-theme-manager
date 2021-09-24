@@ -1,0 +1,13 @@
+
+::ng-deep {
+  .mat-expansion-panel {
+    box-shadow: none!important;
+    .mat-expansion-panel-header {
+      padding: 0 24px 0 0 !important;
+    }
+
+    .mat-expansion-panel-body {
+      padding: 0 !important;
+    }
+}
+}

@@ -1,4 +1,4 @@
-<app-layout>
+<app-layout (menuToggle)="menuToggle($event)">
   <div footer>this is a footer</div>
   <div leftHeader>
     <button mat-button>Hello</button>
@@ -7,7 +7,7 @@
     <button mat-button>GoodBye</button>
   </div>
   <div menu>
-    <a mat-menu-item>Hello</a>
+    <app-menu [menu]="menu" [isOpen]="menuIsOpen"></app-menu>
   </div>
   <div profileMenu>
       <a mat-menu-item routerLink="/login">Login</a>

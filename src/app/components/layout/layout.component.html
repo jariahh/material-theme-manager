@@ -1,7 +1,7 @@
 <mat-drawer-container class="main-container" autosize
                        [class.mat-drawer-closed]="!sidenavContainer.opened"
                        [class.mat-drawer-open]="sidenavContainer.opened">
-  <mat-drawer #sidenavContainer mode="side" opened="opened">
+  <mat-drawer (openedChange)="menuToggleOpen($event)" #sidenavContainer mode="side" opened="opened">
     <mat-toolbar color="primary">
       <button mat-button (click)="sidenavContainer.toggle()">
         <mat-icon>menu</mat-icon>
