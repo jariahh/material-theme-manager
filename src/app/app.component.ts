@@ -14,29 +14,23 @@ export class AppComponent implements OnInit, OnDestroy {
       title: 'Menu Item One',
       path: 'main',
       children: [{
-        icon: 'android',
         title: 'Sub Menu Item One',
         path: 'level-2',
         children: [{
-          icon: 'android',
           title: 'Sub Menu Item One',
           path: 'level-3',
           children: [{
-            icon: 'android',
             title: 'Sub Menu Item One',
             path: 'level-4/1',
           }, {
-            icon: 'autorenew',
             title: 'Sub Menu Item Two',
             path: 'level-4/2',
           }] as IMenuItem[],
         }, {
-          icon: 'autorenew',
           title: 'Sub Menu Item Two',
           path: 'level-3/2',
         }] as IMenuItem[],
       }, {
-        icon: 'autorenew',
         title: 'Sub Menu Item Two',
         path: 'level-2/1',
       }] as IMenuItem[]
@@ -45,24 +39,20 @@ export class AppComponent implements OnInit, OnDestroy {
       title: 'Menu Item Two',
       path: 'two',
       children: [{
-        icon: 'android',
         title: 'Sub Menu Item One',
         path: 'level-2/1',
       }, {
-        icon: 'autorenew',
         title: 'Sub Menu Item Two',
         path: 'level-2/2',
       }] as IMenuItem[]
     }, {
-      icon: 'autorenew',
+      icon: 'android',
       title: 'Menu Item Three',
       path: 'three',
       children: [{
-        icon: 'android',
         title: 'Sub Menu Item One',
         path: 'level-2/1',
       }, {
-        icon: 'autorenew',
         title: 'Sub Menu Item Two',
         path: 'level-2/2',
       }] as IMenuItem[]
