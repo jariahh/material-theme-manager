@@ -1,5 +1,9 @@
-<app-layout [isIconMenu]="isIconMenu" (menuToggle)="menuToggle($event)">
-  <div footer>this is a footer</div>
+<theme-layout
+    [themes]="themes"
+    [isIconMenu]="isIconMenu"
+    (menuToggle)="menuToggle($event)"
+    [isMenuOpen]="menuIsOpen"
+    menuLayout="side">
   <div leftHeader>
     <button mat-button>Hello</button>
   </div>
@@ -7,10 +11,11 @@
     <button mat-button>GoodBye</button>
   </div>
   <div menu>
-    <app-menu [isIconMenu]="isIconMenu" [menu]="menu" [isOpen]="menuIsOpen"></app-menu>
+    <theme-menu [isIconMenu]="isIconMenu" [isOpen]="menuIsOpen" [menu]="menu" ></theme-menu>
   </div>
   <div profileMenu>
       <a mat-menu-item routerLink="/login">Login</a>
   </div>
   <router-outlet></router-outlet>
-</app-layout>
+  <div footer>this is a footer</div>
+</theme-layout>

@@ -1,5 +1,6 @@
 @use "sass:map";
 @use '~@angular/material' as mat;
+@import '../../../../../src/material-helper';
 @mixin getStyle($color, $secondColor){
   header {
     @if ($color != null) {
@@ -13,34 +14,18 @@
   footer{
     @if ($secondColor != null) {
       background: $secondColor;
+      color: $color;
     }
     padding: 1rem;
   }
 }
-@mixin theme($theme){
-  $config: mat.get-color-config($theme);
-  $primary: map.get($config, primary);
-  $accent: map.get($config, accent);
-  $warn: map.get($config, warn);
-  $bgColorPrimary: mat.get-color-from-palette($primary, default);
-  $fgColorPrimary: mat.get-color-from-palette($primary, main-contrast);
-  $bgColorAccent: mat.get-color-from-palette($accent, default);
-  $fgColorAccent: mat.get-color-from-palette($accent, main-contrast);
-  $bgColorWarn: mat.get-color-from-palette($warn, default);
-  $fgColorWarn: mat.get-color-from-palette($warn, main-contrast);
+@mixin theme($theme, $colors){
   app-widget{
     &>div {
-      @include getStyle(null, null);
-      &.mat-primary {
-        @include getStyle($bgColorPrimary, $bgColorAccent);
-      }
-
-      &.mat-accent {
-        @include getStyle($bgColorAccent, lighten($bgColorAccent, 5%));
-      }
-
-      &.mat-warn {
-        @include getStyle($bgColorWarn, lighten($bgColorPrimary, 25%));
+      @each $color in $colors {
+        &.mat-#{$color} {
+          @include getStyle(getColor($theme, $color, default), getColor($theme, $color, main-contrast));
+        }
       }
     }
   }

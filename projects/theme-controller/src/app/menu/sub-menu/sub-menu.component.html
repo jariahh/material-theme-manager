@@ -11,7 +11,7 @@
         {{menuItem.title}}
     </a>
     <mat-menu #subMenu>
-      <app-sub-menu [menu]="menuItem.children"></app-sub-menu>
+      <theme-sub-menu [basePath]="basePath + menuItem.path + '/'" [menu]="menuItem.children"></theme-sub-menu>
     </mat-menu>
   </ng-container>
 </ng-container>

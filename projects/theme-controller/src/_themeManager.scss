@@ -1,0 +1,4 @@
+@use "./app/layout/layout-component-theme";
+@mixin theme($theme, $colors){
+  @include layout-component-theme.theme($theme, $colors);
+}

@@ -3,8 +3,11 @@
                       [class.is-icon-menu]="isIconMenu"
                       [class.mat-drawer-closed]="!sidenavContainer.opened"
                       [class.mat-drawer-open]="sidenavContainer.opened">
-  <mat-drawer class="mat-secondary" (openedChange)="menuToggleOpen($event)" #sidenavContainer mode="side"
-              opened="opened">
+  <mat-drawer class="mat-secondary"
+              (openedChange)="menuToggleOpen($event)"
+              #sidenavContainer
+              [mode]="menuLayout"
+              [opened]="opened">
     <mat-toolbar color="primary">
       <button mat-button (click)="sidenavContainer.toggle()">
         <mat-icon>menu</mat-icon>
@@ -29,14 +32,16 @@
         <mat-icon>person</mat-icon>
       </button>
       <mat-menu #userMenu>
-        <button mat-menu-item *ngFor="let theme of themes" [class.active]="theme == (selectedTheme$ | async)"
-                (click)="setTheme(theme)" style="text-transform: capitalize">
-          <app-theme-thumbnail [theme]="theme"></app-theme-thumbnail>
-        </button>
-        <div mat-menu-item>
+        <ng-container *ngIf="themes.length>1 && showThemes">
+          <button mat-menu-item *ngFor="let theme of themes" [class.active]="theme == (selectedTheme$ | async)"
+                  (click)="setTheme(theme)" style="text-transform: capitalize">
+            <theme-thumbnail [theme]="theme"></theme-thumbnail>
+          </button>
+        </ng-container>
+        <div mat-menu-item *ngIf="showDarkMode">
           <mat-slide-toggle [(ngModel)]="darkMode">Dark Mode</mat-slide-toggle>
         </div>
-        <mat-divider></mat-divider>
+        <mat-divider *ngIf="(themes.length>1 && showThemes) || showDarkMode"></mat-divider>
         <ng-content select="[profileMenu]"></ng-content>
       </mat-menu>
     </mat-toolbar>

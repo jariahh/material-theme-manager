@@ -3,4 +3,5 @@ export class Theme {
     className: string = '';
     link: string = '';
     subThemeLink: string = '';
+    colors = ['', 'primary', 'accent', 'warn']
 }

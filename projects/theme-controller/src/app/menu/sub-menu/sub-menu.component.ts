@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {IMenuItem} from "../IMenuItem";
 
 @Component({
-  selector: 'app-sub-menu',
+  selector: 'theme-sub-menu',
   templateUrl: './sub-menu.component.html',
   styleUrls: ['./sub-menu.component.scss']
 })

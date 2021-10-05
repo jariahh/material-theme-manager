@@ -1,8 +1,8 @@
 @use "projects/main/src/themeManager";
-@use "app/components/layout/layout-component-theme";
+@use "../projects/theme-controller/src/themeManager" as themeController;
 @use "perfect_scrollbars";
-@mixin theme($theme){
-  @include layout-component-theme.theme($theme);
-  @include themeManager.theme($theme);
+@mixin theme($theme, $colors: ['', 'primary', 'accent', 'warn']){
+  @include themeController.theme($theme, $colors);
+  @include themeManager.theme($theme, $colors);
   @include perfect_scrollbars.theme($theme);
 }

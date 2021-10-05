@@ -12,12 +12,12 @@
             <span>{{menuItem.title}}</span>
           </a>
         </mat-expansion-panel-header>
-        <app-menu *ngIf="menuItem.children?.length"
-                  [isOpen]="isOpen"
-                  [isIconMenu]="isIconMenu"
-                  [menu]="menuItem.children"
-                  [basePath]="basePath + menuItem.path + '/'"
-                  [level]="level + 1"></app-menu>
+        <theme-menu *ngIf="menuItem.children?.length"
+                    [isOpen]="isOpen"
+                    [isIconMenu]="isIconMenu"
+                    [menu]="menuItem.children"
+                    [basePath]="basePath + menuItem.path + '/'"
+                    [level]="level + 1"></theme-menu>
       </mat-expansion-panel>
     </ng-container>
   </mat-accordion>
@@ -38,7 +38,7 @@
         </div>
       </a>
       <mat-menu #subMenu xPosition="after" yPosition="below" [overlapTrigger]="true" class="offsetMenu">
-        <app-sub-menu [menu]="menuItem.children"></app-sub-menu>
+        <theme-sub-menu [basePath]="basePath + menuItem.path + '/'" [menu]="menuItem.children"></theme-sub-menu>
       </mat-menu>
     </ng-container>
   </ng-container>

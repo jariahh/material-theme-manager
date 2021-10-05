@@ -1,6 +1,6 @@
-@import "../../../material-helper";
-@import "../../../sizes";
-@mixin theme($theme){
+@import "../../../../../src/material-helper";
+@import "../../../../../src/sizes";
+@mixin theme($theme, $colors){
   footer, mat-drawer, mat-accordion {
     &.mat-primary {
       background: getColor($theme, primary, default);

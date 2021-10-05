@@ -3,34 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {AngularMaterialModule} from "./shared/angular-material.module";
-import {ThemeThumbnailComponent} from "./components/layout/theme-thumbnail/theme-thumbnail.component";
+import {AngularMaterialModule} from "../../projects/shared/angular-material.module";
 import {CommonModule} from "@angular/common";
 import {AppRoutingModule} from "./app-routing.module";
 import { MainComponent } from './components/main/main.component';
-import { LayoutComponent } from './components/layout/layout.component';
 import {FormsModule} from "@angular/forms";
-import { MenuComponent } from './components/menu/menu.component';
-import { SubMenuComponent } from './components/menu/sub-menu/sub-menu.component';
+import {ThemeControllerModule} from "../../projects/theme-controller/src/app/theme-controller.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThemeThumbnailComponent,
     MainComponent,
-    LayoutComponent,
-    LayoutComponent,
-    MenuComponent,
-    SubMenuComponent
   ],
-    imports: [
-        AngularMaterialModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        CommonModule,
-        FormsModule
-    ],
+  imports: [
+    AngularMaterialModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    ThemeControllerModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
