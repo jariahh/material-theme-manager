@@ -159,9 +159,9 @@ body {
   --text-primary-darker-color: #{$light-primary-text};
 }
 $mat-primary: (
-  main: #3385cc,
-  lighter: #c2daf0,
-  darker: #2068b9,
+  main: #0b2b46,
+  lighter: #3383cc,
+  darker: #091a2d,
   200: #3385cc, // For slide toggle,
   contrast : (
     main: $light-primary-text,
@@ -173,9 +173,9 @@ $theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
 
 
 body {
-  --accent-color: #7abdd6;
-  --accent-lighter-color: #d7ebf3;
-  --accent-darker-color: #5da6c6;
+  --accent-color: #0b2b46;
+  --accent-lighter-color: #3383cc;
+  --accent-darker-color: #091a2d;
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
@@ -217,22 +217,22 @@ $theme-warn: mat.define-palette($mat-warn, main, lighter, darker);
 
 
 body {
-  --secondary-color: #e8e8e8;
-  --secondary-lighter-color: #ffffff;
-  --secondary-darker-color: #828282;
+  --secondary-color: #205c94;
+  --secondary-lighter-color: #9bceff;
+  --secondary-darker-color: #0a2e4f;
   --text-secondary-color: #{$light-primary-text};
   --text-secondary-lighter-color: #{$light-primary-text};
   --text-secondary-darker-color: #{$light-primary-text};
 }
 $mat-secondary: (
-  main: #e8e8e8,
-  lighter: #ffffff,
-  darker: #828282,
-  200: #454545, // For slide toggle,
+  main: #205c94,
+  lighter: #9bceff,
+  darker: #0a2e4f,
+  200: #7abdd6, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
-    lighter: $dark-primary-text,
-    darker: $dark-primary-text,
+    main: #9bceff,
+    lighter: #cbe4fa,
+    darker: #356b9a,
   )
 );
 $theme-secondary: mat.define-palette($mat-secondary, main, lighter, darker);
@@ -247,26 +247,26 @@ $theme: (
   background: $mat-light-theme-background,
 );
 
-body {
-  --secondary-color: #3e3e3e;
-  --secondary-lighter-color: #5c5c5c;
-  --secondary-darker-color: #171717;
-  --text-secondary-color: #{$light-primary-text};
-  --text-secondary-lighter-color: #{$light-primary-text};
-  --text-secondary-darker-color: #{$light-primary-text};
-}
-$mat-secondary: (
-  main: #3e3e3e,
-  lighter: #5c5c5c,
-  darker: #171717,
-  200: #454545, // For slide toggle,
-  contrast : (
-    main: $light-primary-text,
-    lighter: $light-primary-text,
-    darker: $light-primary-text,
-  )
-);
-$theme-secondary: mat.define-palette($mat-secondary, main, lighter, darker);
+//body {
+//  --secondary-color: #3e3e3e;
+//  --secondary-lighter-color: #5c5c5c;
+//  --secondary-darker-color: #171717;
+//  --text-secondary-color: #{$light-primary-text};
+//  --text-secondary-lighter-color: #{$light-primary-text};
+//  --text-secondary-darker-color: #{$light-primary-text};
+//}
+//$mat-secondary: (
+//  main: #3e3e3e,
+//  lighter: #5c5c5c,
+//  darker: #171717,
+//  200: #454545, // For slide toggle,
+//  contrast : (
+//    main: $light-primary-text,
+//    lighter: $light-primary-text,
+//    darker: $light-primary-text,
+//  )
+//);
+//$theme-secondary: mat.define-palette($mat-secondary, main, lighter, darker);
 $altTheme: (
   primary: $theme-primary,
   secondary: $theme-secondary,

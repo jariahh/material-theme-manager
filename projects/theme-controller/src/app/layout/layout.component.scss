@@ -17,24 +17,27 @@ $small-header-height: 57px;
     height: 100%;
     position: relative;
 
-
-    .innerTheme {
-      padding: 1rem;
-    }
-
     mat-toolbar {
-      min-height: 64px;
+      min-height: 4rem;
       position: sticky;
       top: 0;
       z-index: 1;
     }
+    .scrollable {
+      height: calc(100vh - 4rem);
+      overflow: auto;
+      .innerTheme {
+        padding: 1rem;
+      }
 
-    footer {
-      margin: 0;
-      padding: 1rem;
-      flex: 1 1 auto;
-      min-height: 32px;
-      line-height: 32px;
+
+      footer {
+        margin: 0;
+        padding: 1rem;
+        flex: 1 1 auto;
+        min-height: 32px;
+        line-height: 32px;
+      }
     }
   }
 }

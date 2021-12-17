@@ -21,7 +21,7 @@
     </mat-list>
   </mat-drawer>
   <mat-drawer-content class="ps">
-    <mat-toolbar color="primary">
+    <mat-toolbar class="mat-elevation-z6">
       <button *ngIf="!isIconMenu && !sidenavContainer.opened" mat-button (click)="sidenavContainer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
@@ -45,11 +45,13 @@
         <ng-content select="[profileMenu]"></ng-content>
       </mat-menu>
     </mat-toolbar>
-    <div #innerTheme class="innerTheme">
-      <ng-content></ng-content>
+    <div class="scrollable ps">
+      <div #innerTheme class="innerTheme">
+        <ng-content></ng-content>
+      </div>
+      <footer class="mat-elevation-z2">
+        <ng-content select="[footer]"></ng-content>
+      </footer>
     </div>
-    <footer class="mat-accent">
-      <ng-content select="[footer]"></ng-content>
-    </footer>
   </mat-drawer-content>
 </mat-drawer-container>

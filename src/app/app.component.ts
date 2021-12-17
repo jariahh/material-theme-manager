@@ -8,7 +8,7 @@ import {Theme} from "../../projects/theme-controller/src/app/layout/theme-thumbn
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  menuIsOpen: boolean = false;
+  menuIsOpen: boolean = true;
   isIconMenu = true;
   menu = [
     {

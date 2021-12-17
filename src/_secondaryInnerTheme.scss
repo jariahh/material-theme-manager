@@ -233,13 +233,14 @@ $altTheme: (
 );
 
 @mixin theme() {
+  $colors: [null, 'primary', 'secondary', 'accent', 'warn'];
   // Theme Init
   @include mat.all-component-themes($theme);
-  @include componentThemeManager.theme($theme);
+  @include componentThemeManager.theme($theme, $colors);
 
   &.theme-alternate {
     @include mat.all-component-themes($altTheme);
-    @include componentThemeManager.theme($altTheme);
+    @include componentThemeManager.theme($altTheme, $colors);
   }
 
   // Specific component overrides, pieces that are not in line with the general theming

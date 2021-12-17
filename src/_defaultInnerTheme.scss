@@ -248,6 +248,7 @@ $theme: (
 );
 $altTheme: (
   primary: $theme-primary,
+  secondary: $theme-secondary,
   accent: $theme-accent,
   warn: $theme-warn,
   is-dark: true,
@@ -255,13 +256,13 @@ $altTheme: (
   background: $mat-dark-theme-background,
 );
 
-  @mixin theme() {
-    $colors: [null, 'primary', 'secondary', 'accent', 'warn'];
+@mixin theme() {
+  $colors: [null, 'primary', 'secondary', 'accent', 'warn'];
   // Theme Init
   @include mat.all-component-themes($theme);
   @include componentThemeManager.theme($theme, $colors);
 
-  .theme-alternate {
+  &.theme-alternate {
     @include mat.all-component-themes($altTheme);
     @include componentThemeManager.theme($altTheme, $colors);
   }
