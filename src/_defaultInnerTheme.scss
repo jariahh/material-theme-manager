@@ -256,7 +256,7 @@ $altTheme: (
 );
 
   @mixin theme() {
-    $colors: ['', 'primary', 'secondary', 'accent', 'warn'];
+    $colors: [null, 'primary', 'secondary', 'accent', 'warn'];
   // Theme Init
   @include mat.all-component-themes($theme);
   @include componentThemeManager.theme($theme, $colors);
