@@ -7,17 +7,17 @@ import { WidgetComponent } from './widget/widget.component';
 import {FormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WidgetComponent
-  ],
+    declarations: [
+        AppComponent,
+        WidgetComponent
+    ],
     imports: [
         CommonModule,
         AppRoutingModule,
         AngularMaterialModule,
         FormsModule
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

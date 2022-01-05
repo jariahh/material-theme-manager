@@ -12,6 +12,9 @@
       <button mat-button (click)="sidenavContainer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
+      <ng-container *ngIf="sidenavContainer.opened">
+        <ng-container *ngTemplateOutlet="logo"></ng-container>
+      </ng-container>
     </mat-toolbar>
     <mat-list>
       <mat-nav-list>
@@ -25,6 +28,9 @@
       <button *ngIf="!isIconMenu && !sidenavContainer.opened" mat-button (click)="sidenavContainer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
+      <ng-container *ngIf="!sidenavContainer.opened">
+        <ng-container *ngTemplateOutlet="logo"></ng-container>
+      </ng-container>
       <ng-content select="[leftHeader]"></ng-content>
       <div class="spacer"></div>
       <ng-content select="[rightHeader]"></ng-content>
@@ -35,7 +41,10 @@
         <ng-container *ngIf="themes.length>1 && showThemes">
           <button mat-menu-item *ngFor="let theme of themes" [class.active]="theme == (selectedTheme$ | async)"
                   (click)="setTheme(theme)" style="text-transform: capitalize">
-            <theme-thumbnail [theme]="theme"></theme-thumbnail>
+            <theme-thumbnail [theme]="theme"
+                             [showThemesEditable]="showThemesEditable"
+                             (editTheme)="editTheme.emit($event)"
+            ></theme-thumbnail>
           </button>
         </ng-container>
         <div mat-menu-item *ngIf="showDarkMode">
@@ -55,3 +64,6 @@
     </div>
   </mat-drawer-content>
 </mat-drawer-container>
+<ng-template #logo>
+  <ng-content select="[logo]"></ng-content>
+</ng-template>

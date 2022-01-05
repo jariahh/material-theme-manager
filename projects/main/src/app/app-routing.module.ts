@@ -5,6 +5,9 @@ import {AppComponent} from "./app.component";
 const routes: Routes = [{
   path: '',
   component: AppComponent
+}, {
+    path: 'components',
+    loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
 }];
 
 @NgModule({

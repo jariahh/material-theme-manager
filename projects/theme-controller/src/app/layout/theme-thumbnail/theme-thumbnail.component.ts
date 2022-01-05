@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {Theme} from "./theme";
 import {ThemeService} from "../../theme.service";
 
@@ -14,39 +14,34 @@ export class ThemeThumbnailComponent implements OnInit {
 
   constructor(private themeService: ThemeService) {
   }
-
+  @Input() showThemesEditable = false;
   @Input()
   theme: Theme = new Theme;
+  @Output() editTheme = new EventEmitter<Theme>()
 
   ngOnInit(): void {
     const models = this.themeService.getThemeModels(this.theme);
     this.themeModel = models.themeModel;
     this.subThemeModel = models.subThemeModel;
   }
+
+  public editClicked($event: MouseEvent) {
+    // $event.stopPropagation();
+    this.editTheme.emit(this.theme);
+  }
 }
 
-export interface Primary {
-  main: string;
-  lighter: string;
-  darker: string;
-}
-
-export interface Accent {
-  main: string;
-  lighter: string;
-  darker: string;
-}
-
-export interface Warn {
-  main: string;
-  lighter: string;
-  darker: string;
+export interface PaletteOption {
+    name?: string;
+    main: string;
+    lighter: string;
+    darker: string;
 }
 
 export interface Palette {
-  primary: Primary;
-  accent: Accent;
-  warn: Warn;
+  primary: PaletteOption;
+  accent: PaletteOption;
+  warn: PaletteOption;
   lightText: string;
   lightBackground: string;
   darkText: string;
@@ -58,6 +53,20 @@ export interface Font {
   size?: any;
 }
 
+enum FontWeight {
+    light = 300,
+    medium = 400,
+    regular = 500
+}
+
+export interface FontOption {
+    family: string;
+    target: string;
+    weight: FontWeight;
+    size: string;
+    lineHeight: number;
+    spacing: string;
+}
 export interface ThemeModel {
   palette: Palette;
   fonts: Font[];

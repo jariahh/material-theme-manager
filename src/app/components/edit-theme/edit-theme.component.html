@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+    <button mat-stroked-button (click)="getTheme()">Get Theme</button>
+</mat-toolbar>
+<mat-sidenav-container style="height: calc(100% - 4rem)" autosize>
+    <mat-sidenav mode="side" opened>
+        <div style="padding: 1rem">
+            <h3>Palettes</h3>
+            <mat-toolbar>
+                <button mat-button (click)="addPalette()">
+                    <mat-icon>add_circle</mat-icon>
+                    Add
+                </button>
+            </mat-toolbar>
+            <div style="max-width: 510px">
+                <app-palette *ngFor="let palette of theme.palettes" [palette]="palette"></app-palette>
+            </div>
+            <h3>Icon Style</h3>
+            <mat-button-toggle-group [(value)]="theme.iconStyle">
+                <mat-button-toggle [value]="'Filled'">Filled</mat-button-toggle>
+                <mat-button-toggle [value]="'Outlined'">Outlined</mat-button-toggle>
+                <mat-button-toggle [value]="'Rounded'">Rounded</mat-button-toggle>
+                <mat-button-toggle [value]="'TwoTone'">TwoTone</mat-button-toggle>
+                <mat-button-toggle [value]="'Sharp'">Sharp</mat-button-toggle>
+            </mat-button-toggle-group>
+            <h3>Fonts</h3>
+            <ag-grid-angular
+                style="width: 512px; height: 600px;"
+                class="ag-theme-alpine"
+                [rowData]="theme.fonts"
+                [columnDefs]="columnDefs">
+            </ag-grid-angular>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <iframe class="mat-elevation-z6"
+                style="width: calc(100% - 2px - 2rem); height: calc(100% - 6px - 2rem); margin: 1rem; border: none"
+                src="/"></iframe>
+    </mat-sidenav-content>
+</mat-sidenav-container>

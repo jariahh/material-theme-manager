@@ -1,0 +1,14 @@
+:host{
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  .edit-toolbar{
+    height: 4rem;
+  }
+  .theme-container{
+    height: 100%;
+    &.isEdit{
+      height: calc(100% - 4rem);
+    }
+  }
+}

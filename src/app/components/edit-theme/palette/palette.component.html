@@ -1,0 +1,19 @@
+<mat-form-field>
+    <input matInput style="text-transform: capitalize" [(ngModel)]="palette.name">
+</mat-form-field>
+<div [(colorPicker)]="palette.main"
+     class="main"
+     (colorPickerChange)="colorChange($event)"
+     [style.background-color]="palette.main">
+    {{palette.main}}
+</div>
+<div [(colorPicker)]="palette.lighter"
+     class="lighter"
+     [style.background-color]="palette.lighter">
+    {{palette.lighter}}
+</div>
+<div [(colorPicker)]="palette.darker"
+     class="darker"
+     [style.background-color]="palette.darker">
+    {{palette.darker}}
+</div>

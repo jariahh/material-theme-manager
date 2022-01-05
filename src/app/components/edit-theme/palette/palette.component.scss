@@ -1,0 +1,22 @@
+@use "sass:math";
+:host {
+    display: inline-block;
+    margin: .125rem;
+    $width: 9.8rem;
+    $height: math.div($width, 16) * 9;
+    $spacing: .125rem;
+    mat-form-field, .main {
+        width: calc(#{$width} + #{$spacing * 2});
+    }
+    .main, .lighter, .darker {
+        margin: $spacing;
+    }
+    .main{
+        height: $height;
+    }
+    .lighter, .darker {
+        width: math.div($width, 2);
+        height: math.div($height, 2);
+        display: inline-block;
+    }
+}

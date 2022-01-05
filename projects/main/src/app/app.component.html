@@ -8,7 +8,7 @@
   <mat-form-field>
     <mat-label>Select a color</mat-label>
     <mat-select style="text-transform: capitalize" [(ngModel)]="color" placeholder="Color">
-      <mat-option style="text-transform: capitalize" *ngFor="let color of selectedTheme.colors" [value]="color">{{color}}</mat-option>
+      <mat-option style="text-transform: capitalize" *ngFor="let color of selectedTheme?.colors" [value]="color">{{color}}</mat-option>
     </mat-select>
   </mat-form-field>
   <app-widget [color]="color"></app-widget>

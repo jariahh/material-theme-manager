@@ -20,12 +20,14 @@ import {ThemeService} from "../theme.service";
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit{
+  @Output() editTheme = new EventEmitter<Theme>()
   // @ts-ignore
   @ViewChild('sidenavContainer') private sidenavContainer: ElementRef<MatDrawer>;
   @Output() menuToggle = new EventEmitter<boolean>();
   @Input() themes: Theme[] = [];
   @Input() isIconMenu = false;
   @Input() showThemes = true;
+  @Input() showThemesEditable = false;
   @Input() showDarkMode = true;
   @Input() isMenuOpen = false;
   @Input() menuLayout: 'side' | 'push' | 'over' = `side`;

@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<theme-layout
+  [themes]="themes"
+  [isIconMenu]="isIconMenu"
+  (menuToggle)="menuToggle($event)"
+  [isMenuOpen]="menuIsOpen"
+  menuLayout="side">
+  <router-outlet></router-outlet>
+  <div logo>
+    Logo goes here
+  </div>
+  <div leftHeader>
+    <button mat-button>Hello</button>
+  </div>
+  <div rightHeader>
+    <button mat-button>GoodBye</button>
+  </div>
+  <div menu>
+    <theme-menu [isIconMenu]="isIconMenu" [isOpen]="menuIsOpen" [menu]="menu"></theme-menu>
+  </div>
+  <div profileMenu>
+    <a mat-menu-item routerLink="/login">Login</a>
+  </div>
+
+  <div footer>this is a footer</div>
+</theme-layout>
